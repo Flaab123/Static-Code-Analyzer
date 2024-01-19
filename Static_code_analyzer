@@ -7,7 +7,7 @@ import ast
 for arg in sys.argv:
     user_input = arg
     
-user_input = "test.py"    
+user_input = "Mappie/"    
 
 if re.match(r".*.py$",user_input):
     directory = False
@@ -167,6 +167,7 @@ def chk_s010_011_012(filename,name):
             for index,mutable_arg in enumerate(mutable_def_args[::-1]):
                 if mutable_arg:
                     ErrorList(node.lineno,f"S012 Default argument '{arguments[-index]}' is mutable",name)
+                    break
             var_names = []
             var_line = []
             for assgn_node in ast.walk(node):
